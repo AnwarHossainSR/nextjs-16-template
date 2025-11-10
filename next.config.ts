@@ -1,12 +1,10 @@
-
-
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },
-  cacheComponents: true,
+  // cacheComponents: true, // Disabled due to conflicts with dynamic routes
   reactCompiler: true,
   images: {
     remotePatterns: [
@@ -20,6 +18,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-}
+};
 
 export default nextConfig;
