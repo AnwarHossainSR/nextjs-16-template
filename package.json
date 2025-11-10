@@ -13,12 +13,20 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "lint:staged": "next lint --max-warnings 0",
     "postbuild": "npx prisma generate",
     "postinstall": "npx prisma generate",
     "prisma:generate": "npx prisma generate",
     "prisma:push": "npx prisma db push",
     "seed": "node --loader ts-node/esm prisma/seed.ts",
     "ngrok": "ngrok http 3000"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@clerk/nextjs": "^6.18.5",
@@ -53,6 +61,11 @@
     "prisma": "^6.7.0",
     "tailwindcss": "^4.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0"
   }
 }
