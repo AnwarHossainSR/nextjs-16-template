@@ -27,3 +27,7 @@ export const getDateCompare = (after: Date) => {
   }
   return `${differenceInYears(currDate, after)} year(s) ago`;
 };
+
+export const getCurrentYear = () => {
+  return new Date().getFullYear();
+};

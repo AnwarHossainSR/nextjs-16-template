@@ -1,7 +1,15 @@
+'use client';
+
 import Link from 'next/link';
+import { Suspense } from 'react';
+import { getCurrentYear } from '@/lib/date';
+
+function CurrentYear() {
+  const currentYear = getCurrentYear();
+  return <>{currentYear}</>;
+}
 
 export default function MainFooter() {
-  const currentYear = 2025;
   
   return (
     <footer className="w-full py-8 bg-[--card] border-t border-[--border]">
@@ -11,7 +19,7 @@ export default function MainFooter() {
             NextBoiler
           </span>
           <span className="text-sm text-[(--muted-foreground)]">
-            © {currentYear} All rights reserved.
+            © <Suspense fallback="2024"><CurrentYear /></Suspense> All rights reserved.
           </span>
         </div>
         <nav className="flex flex-wrap justify-center gap-4 md:gap-6">
