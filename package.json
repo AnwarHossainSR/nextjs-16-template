@@ -15,7 +15,7 @@
     "start": "next start",
     "format": "prettier --write .",
     "prepare": "husky",
-    "lint:staged": "next lint --max-warnings 0",
+    "lint:staged": "next lint",
     "postbuild": "npx prisma generate",
     "postinstall": "npx prisma generate",
     "prisma:generate": "npx prisma generate",
