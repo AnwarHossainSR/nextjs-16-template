@@ -1,4 +1,5 @@
 // app/api/webhooks/clerk/route.ts
+import Env from '@/env';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
@@ -6,8 +7,7 @@ import { Webhook } from 'svix';
 import { prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
-  const { CLERK_WEBHOOK_SECRET } = process.env;
-
+  const {CLERK_WEBHOOK_SECRET} = Env
   if (!CLERK_WEBHOOK_SECRET) {
     return NextResponse.json(
       { error: 'Webhook secret not configured' },
