@@ -1,8 +1,10 @@
+import { connection } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { prisma } from '@/lib/prisma';
 
 export async function GET(request: Request) {
+  await connection();
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('query') || '';
@@ -20,11 +22,12 @@ export async function GET(request: Request) {
       where.category = { equals: category };
     }
 
-    const orderBy: any = sortBy === 'newest'
-      ? { createdAt: 'desc' }
-      : sortBy === 'oldest'
-      ? { createdAt: 'asc' }
-      : { viewCount: 'desc' };
+    const orderBy: any =
+      sortBy === 'newest'
+        ? { createdAt: 'desc' }
+        : sortBy === 'oldest'
+          ? { createdAt: 'asc' }
+          : { viewCount: 'desc' };
 
     const posts = await prisma.post.findMany({
       where,
@@ -34,7 +37,7 @@ export async function GET(request: Request) {
         title: true,
         excerpt: true,
         content: true,
-        coverImage: true,  // Keep this only if you've added it to your schema
+        coverImage: true, // Keep this only if you've added it to your schema
         category: true,
         tags: true,
         readTime: true,
