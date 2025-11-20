@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   },
   // cacheComponents: true, // TODO: Enable after resolving Clerk compatibility
   reactCompiler: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   images: {
     remotePatterns: [
       {
