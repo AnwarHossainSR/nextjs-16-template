@@ -4,10 +4,16 @@ import { Suspense } from 'react';
 
 export default function SignInPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[--background]">
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <div className="flex min-h-screen items-center justify-center bg-(--background)">
         <SignIn />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
