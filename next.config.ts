@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },
-  cacheComponents: true,
+  // cacheComponents: true, // TODO: Enable after resolving Clerk compatibility
   reactCompiler: true,
   images: {
     remotePatterns: [
