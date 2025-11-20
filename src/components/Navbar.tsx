@@ -16,10 +16,10 @@ export default function MainNavbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--background)]/[0.85] backdrop-blur-lg border-b border-[var(--border)] shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-(--background)/85 backdrop-blur-lg border-b border-(--border) shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 max-w-full">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl sm:text-2xl font-bold font-poppins bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
+          <span className="text-xl sm:text-2xl font-bold font-poppins bg-linear-to-r from-(--primary) to-(--accent) bg-clip-text text-transparent">
             NextBoiler
           </span>
         </Link>
@@ -27,14 +27,14 @@ export default function MainNavbar() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="/posts"
-            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+            className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200"
           >
             Posts
           </Link>
           {isSignedIn && (
             <Link
               href="/dashboard"
-              className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+              className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200"
             >
               Dashboard
             </Link>
@@ -43,24 +43,24 @@ export default function MainNavbar() {
             href="https://github.com/AnwarHossainSR/nextjs-15-template"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+            className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"
           >
             <Github className="h-5 w-5" />
           </Link>
           {isSignedIn ? (
             <>
-              <span className="text-sm font-medium text-[var(--foreground)]">
+              <span className="text-sm font-medium text-(--foreground)">
                 {user?.firstName || user?.emailAddresses[0].emailAddress}
               </span>
               <SignOutButton>
-                <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
                   Sign Out
                 </button>
               </SignOutButton>
             </>
           ) : (
             <SignInButton mode="modal">
-              <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+              <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
                 Sign In
               </button>
             </SignInButton>
@@ -70,7 +70,7 @@ export default function MainNavbar() {
 
         <button
           type="button"
-          className="md:hidden text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+          className="md:hidden text-(--foreground) hover:text-(--primary) transition-colors duration-200"
           onClick={handleToggle}
         >
           {mobileMenuOpen ? (
@@ -81,11 +81,11 @@ export default function MainNavbar() {
         </button>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-x-0 top-16 z-50 bg-[var(--background)] border-b border-[var(--border)] shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
+          <div className="fixed inset-x-0 top-16 z-50 bg-(--background) border-b border-(--border) shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
             <div className="container py-6 flex flex-col space-y-4 px-4 sm:px-6 max-w-full">
               <Link
                 href="/posts"
-                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200"
                 onClick={handleToggle}
               >
                 Posts
@@ -93,7 +93,7 @@ export default function MainNavbar() {
               {isSignedIn && (
                 <Link
                   href="/dashboard"
-                  className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                  className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200"
                   onClick={handleToggle}
                 >
                   Dashboard
@@ -104,25 +104,25 @@ export default function MainNavbar() {
                   href="https://github.com/AnwarHossainSR/nextjs-15-template"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                  className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"
                   onClick={handleToggle}
                 >
                   <Github className="h-5 w-5" />
                 </Link>
                 {isSignedIn ? (
                   <>
-                    <span className="text-sm font-medium text-[var(--foreground)]">
+                    <span className="text-sm font-medium text-(--foreground)">
                       {user?.firstName || user?.emailAddresses[0].emailAddress}
                     </span>
                     <SignOutButton>
-                      <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                      <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
                         Sign Out
                       </button>
                     </SignOutButton>
                   </>
                 ) : (
                   <SignInButton mode="modal">
-                    <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                    <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
                       Sign In
                     </button>
                   </SignInButton>

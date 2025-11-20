@@ -27,10 +27,10 @@ const Error: React.FC<ErrorStateProps> = ({ error, reset }) => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100 p-4 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-50 to-blue-100 p-4 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 ease-in-out">
-        <div className="bg-gradient-to-r from-purple-500 to-blue-600 p-6 flex justify-center">
+        <div className="bg-linear-to-r from-purple-500 to-blue-600 p-6 flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-white opacity-20 rounded-full animate-ping"></div>
             <AlertCircle size={80} className="text-white relative z-10" />

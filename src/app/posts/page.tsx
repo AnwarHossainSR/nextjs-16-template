@@ -59,9 +59,9 @@ export default function PostsPage() {
   ];
 
   return (
-    <div className="bg-[var(--background)] min-h-screen">
+    <div className="bg-(--background) min-h-screen">
       {/* Hero section */}
-      <div className="relative bg-gradient-to-r from-[var(--primary)]/[0.1] to-[var(--accent)]/[0.1] py-16">
+      <div className="relative bg-linear-to-r from-(--primary)/1 to-(--accent)/1 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -69,22 +69,22 @@ export default function PostsPage() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-4">
-              Explore Our <span className="text-[var(--primary)]">Blog</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-(--foreground) mb-4">
+              Explore Our <span className="text-(--primary)">Blog</span>
             </h1>
-            <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-(--muted-foreground) max-w-2xl mx-auto mb-8">
               Discover insightful articles, tutorials, and stories from our
               community of writers and experts.
             </p>
 
             <div className="relative max-w-lg mx-auto">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)]" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-(--muted-foreground)" />
               <Input
                 type="text"
                 placeholder="Search posts by title, content, or tags..."
                 value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                className="pl-10 py-6 bg-[var(--card)] border-[var(--border)] text-[var(--foreground)] focus-visible:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 py-6 bg-(--card) border-(--border) text-(--foreground) focus-visible:ring-[var(--primary)] placeholder:text-(--muted-foreground)"
               />
             </div>
           </motion.div>
@@ -108,11 +108,11 @@ export default function PostsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-[var(--muted-foreground)]">
+            <span className="text-sm font-medium text-(--muted-foreground)">
               Categories:
             </span>
             <div className="flex flex-wrap gap-2">
-              {categories.map(category => (
+              {categories.map((category) => (
                 <Badge
                   key={category}
                   variant={
@@ -120,8 +120,8 @@ export default function PostsPage() {
                   }
                   className={`cursor-pointer transition-colors ${
                     selectedCategory === category
-                      ? 'bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/[0.9]'
-                      : 'bg-[var(--card)] text-[var(--foreground)] border-[var(--border)] hover:bg-[var(--muted)]'
+                      ? 'bg-(--primary) text-(--primary-foreground) hover:bg-(--primary)/9'
+                      : 'bg-(--card) text-(--foreground) border-(--border) hover:bg-(--muted)'
                   }`}
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -132,13 +132,13 @@ export default function PostsPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-[var(--muted-foreground)]">
+            <span className="text-sm font-medium text-(--muted-foreground)">
               Sort by:
             </span>
             <div className="relative">
               <button
                 onClick={() => setIsSortMenuOpen(!isSortMenuOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 border border-[var(--border)] rounded-md bg-[var(--card)] text-sm text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
+                className="flex items-center gap-1 px-3 py-1.5 border border-(--border) rounded-md bg-(--card) text-sm text-(--foreground) hover:bg-(--muted) transition-colors"
               >
                 {sortBy === 'newest'
                   ? 'Newest'
@@ -148,11 +148,11 @@ export default function PostsPage() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               {isSortMenuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-[var(--card)] border border-[var(--border)] rounded-md shadow-lg z-10">
-                  {sortOptions.map(option => (
+                <div className="absolute right-0 mt-2 w-40 bg-(--card) border border-(--border) rounded-md shadow-lg z-10">
+                  {sortOptions.map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center px-4 py-2 text-sm text-[var(--foreground)] hover:bg-[var(--muted)] cursor-pointer"
+                      className="flex items-center px-4 py-2 text-sm text-(--foreground) hover:bg-(--muted) cursor-pointer"
                     >
                       <input
                         type="radio"
@@ -163,7 +163,7 @@ export default function PostsPage() {
                           setSortBy(option.value);
                           setIsSortMenuOpen(false);
                         }}
-                        className="mr-2 h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
+                        className="mr-2 h-4 w-4 text-(--primary) focus:ring-[var(--primary)]"
                       />
                       {option.label}
                     </label>
@@ -180,7 +180,7 @@ export default function PostsPage() {
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--card)]"
+                className="rounded-xl overflow-hidden border border-(--border) bg-(--card)"
               >
                 <Skeleton className="h-48 w-full" />
                 <div className="p-5">
@@ -194,7 +194,7 @@ export default function PostsPage() {
           </div>
         ) : error ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="text-[var(--destructive)] text-lg mb-4">
+            <div className="text-(--destructive) text-lg mb-4">
               Error loading posts: {error.message}
             </div>
             <Button variant="outline" onClick={() => window.location.reload()}>
@@ -204,10 +204,10 @@ export default function PostsPage() {
         ) : posts?.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
             <div className="text-4xl mb-4">🔍</div>
-            <h2 className="text-2xl font-semibold text-[var(--foreground)] mb-2">
+            <h2 className="text-2xl font-semibold text-(--foreground) mb-2">
               No posts found
             </h2>
-            <p className="text-[var(--muted-foreground)] mb-6">
+            <p className="text-(--muted-foreground) mb-6">
               {searchQuery
                 ? `No results for "${searchQuery}"`
                 : selectedCategory !== 'All'
