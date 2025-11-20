@@ -1,9 +1,8 @@
+'use client';
+
 import { SignUp } from '@clerk/nextjs';
-import { connection } from 'next/server';
 
-export default async function SignUpPage() {
-  await connection();
-
+export default function SignUpPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-(--background)">
       <SignUp />
