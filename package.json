@@ -24,7 +24,11 @@
     "ngrok": "ngrok http 3000"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css}": [
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
       "prettier --write"
     ]
   },
@@ -54,18 +58,20 @@
     "winston": "^3.14.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "prisma": "^6.7.0",
-    "tailwindcss": "^4.1.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.3",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0"
+    "prisma": "^6.7.0",
+    "tailwindcss": "^4.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

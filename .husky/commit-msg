@@ -1,1 +1,12 @@
-npx --no -- commitlint --edit $1
+# Commit message format validation
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}'
+
+if ! grep -qE "$commit_regex" "$1"; then
+    echo "❌ Invalid commit message format!"
+    echo "Format: type(scope): description"
+    echo "Types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert"
+    echo "Example: feat(auth): add login support"
+    exit 1
+fi
+
+echo "✅ Commit message format is valid!"

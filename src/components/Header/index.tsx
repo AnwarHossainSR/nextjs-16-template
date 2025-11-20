@@ -1,5 +1,3 @@
-/* eslint-disable simple-import-sort/imports */
-
 'use client';
 
 import Link from 'next/link';
