@@ -46,7 +46,6 @@ const Input: React.FC<InputProps> = ({
       <input
         id={id}
         disabled={disabled}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...register(id, { required })}
         placeholder={placeholder}
         type={type}
@@ -94,4 +93,3 @@ const Input: React.FC<InputProps> = ({
 };
 
 export { Input };
-

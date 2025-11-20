@@ -11,13 +11,14 @@ const Avatar = ({ src, alt, fallback, className = '' }: any) => {
       className={`relative flex h-6 w-6 shrink-0 overflow-hidden rounded-full ${className}`}
     >
       {src ? (
-        <img
+        <Image
           src={src}
           alt={alt || 'Avatar'}
-          className="aspect-square h-full w-full object-cover"
+          fill
+          className="aspect-square object-cover"
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] text-xs">
+        <div className="flex h-full w-full items-center justify-center rounded-full bg-(--muted) text-(--muted-foreground) text-xs">
           {fallback || alt?.charAt(0)?.toUpperCase() || '?'}
         </div>
       )}
@@ -62,7 +63,7 @@ export default function PostCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="group bg-[var(--card)] border border-[var(--border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+      className="group bg-(--card) border border-(--border) rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
     >
       <Link href={`/posts/${id}`} className="block">
         <div className="relative h-48 overflow-hidden">
@@ -75,10 +76,10 @@ export default function PostCard({
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]" />
+            <div className="absolute inset-0 bg-linear-to-r from-(--primary) to-(--accent)" />
           )}
           {category && (
-            <Badge className="absolute top-4 left-4 bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/[0.9]">
+            <Badge className="absolute top-4 left-4 bg-(--primary) text-(--primary-foreground) hover:bg-(--primary)/90">
               {category}
             </Badge>
           )}
@@ -92,33 +93,35 @@ export default function PostCard({
             alt={authorName || authorId}
             fallback={(authorName || authorId).substring(0, 2)}
           />
-          <span className="text-xs text-[var(--muted-foreground)]">
+          <span className="text-xs text-(--muted-foreground)">
             {authorName || authorId}
           </span>
-          <span className="text-xs text-[var(--muted-foreground)]">•</span>
-          <div className="flex items-center text-xs text-[var(--muted-foreground)]">
+          <span className="text-xs text-(--muted-foreground)">•</span>
+          <div className="flex items-center text-xs text-(--muted-foreground)">
             <CalendarIcon className="mr-1 h-3 w-3" />
             {format(new Date(createdAt), 'MMM d, yyyy')}
           </div>
         </div>
 
         <Link href={`/posts/${id}`} className="block">
-          <h2 className="text-xl font-semibold text-[var(--foreground)] mb-2 group-hover:text-[var(--primary)] transition-colors duration-200 line-clamp-2">
+          <h2 className="text-xl font-semibold text-(--foreground) mb-2 group-hover:text-(--primary) transition-colors duration-200 line-clamp-2">
             {title}
           </h2>
-          <p className="text-[var(--muted-foreground)] mb-4 line-clamp-2">{excerpt}</p>
+          <p className="text-(--muted-foreground) mb-4 line-clamp-2">
+            {excerpt}
+          </p>
         </Link>
 
-        <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--border)]">
-          <span className="text-xs text-[var(--muted-foreground)]">
+        <div className="flex items-center justify-between mt-4 pt-4 border-t border-(--border)">
+          <span className="text-xs text-(--muted-foreground)">
             {readTime} min read
           </span>
           <div className="flex items-center gap-3">
-            <div className="flex items-center text-xs text-[var(--muted-foreground)]">
+            <div className="flex items-center text-xs text-(--muted-foreground)">
               <MessageSquare className="mr-1 h-3 w-3" />
               {commentCount}
             </div>
-            <div className="flex items-center text-xs text-[var(--muted-foreground)]">
+            <div className="flex items-center text-xs text-(--muted-foreground)">
               <Eye className="mr-1 h-3 w-3" />
               {viewCount}
             </div>
@@ -127,11 +130,11 @@ export default function PostCard({
 
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-3">
-            {tags.slice(0, 3).map(tag => (
+            {tags.slice(0, 3).map((tag) => (
               <Badge
                 key={tag}
                 variant="outline"
-                className="text-xs bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:bg-[var(--muted)]"
+                className="text-xs bg-(--card) text-(--muted-foreground) border-(--border) hover:bg-(--muted)"
               >
                 {tag}
               </Badge>
@@ -139,7 +142,7 @@ export default function PostCard({
             {tags.length > 3 && (
               <Badge
                 variant="outline"
-                className="text-xs bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:bg-[var(--muted)]"
+                className="text-xs bg-(--card) text-(--muted-foreground) border-(--border) hover:bg-(--muted)"
               >
                 +{tags.length - 3}
               </Badge>

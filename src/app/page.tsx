@@ -1,6 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable import/no-extraneous-dependencies */
-
 'use client';
 
 import { motion } from 'framer-motion';
