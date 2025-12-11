@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.35.1",
+    "@clerk/nextjs": "^6.35.2",
     "@prisma/client": "^6.7.0",
     "@tailwindcss/postcss": "^4.1.4",
     "@tanstack/react-query": "^5.90.8",
