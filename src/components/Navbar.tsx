@@ -40,7 +40,7 @@ export default function MainNavbar() {
             </Link>
           )}
           <Link
-            href="https://github.com/AnwarHossainSR/nextjs-15-template"
+            href="https://github.com/AnwarHossainSR/nextjs-16-template"
             target="_blank"
             rel="noopener noreferrer"
             className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"
@@ -101,7 +101,7 @@ export default function MainNavbar() {
               )}
               <div className="flex items-center justify-between">
                 <Link
-                  href="https://github.com/AnwarHossainSR/nextjs-15-template"
+                  href="https://github.com/AnwarHossainSR/nextjs-16-template"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"

@@ -41,7 +41,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                href="https://github.com/AnwarHossainSR/nextjs-15-template"
+                href="https://github.com/AnwarHossainSR/nextjs-16-template"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-(--border) bg-(--card) px-6 text-sm font-semibold text-(--foreground) shadow-sm hover:bg-(--accent) hover:text-(--accent-foreground) transition-all duration-300 hover:scale-105 w-full sm:w-auto"
