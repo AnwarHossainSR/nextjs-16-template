@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a base image
-FROM node:20.19.5-alpine
+FROM node:20.19.6-alpine
 
 # Set working directory
 WORKDIR /usr/app
