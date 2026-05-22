@@ -37,3 +37,5 @@ next-env.d.ts
 
 /application-log
 .idea
+# clerk configuration (can include secrets)
+/.clerk/
