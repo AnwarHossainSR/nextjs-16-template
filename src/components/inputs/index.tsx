@@ -7,6 +7,10 @@ import type {
 } from 'react-hook-form';
 import { BiDollar } from 'react-icons/bi';
 
+import { Input as TextInput } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
+
 interface InputProps {
   id: string;
   label: string;
@@ -43,32 +47,20 @@ const Input: React.FC<InputProps> = ({
           "
         />
       )}
-      <input
+      <TextInput
         id={id}
         disabled={disabled}
         {...register(id, { required })}
         placeholder={placeholder}
         type={type}
-        className={`
-          peer
-          w-full
-          p-4
-          pt-6 
-          font-light 
-          bg-white 
-          border-2
-          rounded-md
-          outline-none
-          transition
-          disabled:opacity-70
-          disabled:cursor-not-allowed
-          ${formatPrice ? 'pl-9' : 'pl-4'}
-          ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
-          ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}
-          text-neutral-800
-        `}
+        className={cn(
+          'peer h-auto bg-white p-4 pt-6 font-light text-neutral-800',
+          formatPrice ? 'pl-9' : 'pl-4',
+          errors[id] && 'border-sky-500 focus-visible:ring-sky-500'
+        )}
       />
-      <label
+      <Label
+        htmlFor={id}
         className={`
           absolute 
           text-md
@@ -83,11 +75,11 @@ const Input: React.FC<InputProps> = ({
           peer-placeholder-shown:translate-y-0 
           peer-focus:scale-75
           peer-focus:-translate-y-4
-          ${errors[id] ? 'text-rose-500' : 'text-zinc-400'}
+          ${errors[id] ? 'text-sky-600' : 'text-zinc-400'}
         `}
       >
         {label}
-      </label>
+      </Label>
     </div>
   );
 };

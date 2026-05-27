@@ -3,7 +3,9 @@
 import PostCard from '@/components/PostCard';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Post, usePosts } from '@/hooks/usePosts';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -136,9 +138,11 @@ export default function PostsPage() {
               Sort by:
             </span>
             <div className="relative">
-              <button
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
                 onClick={() => setIsSortMenuOpen(!isSortMenuOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 border border-(--border) rounded-md bg-(--card) text-sm text-(--foreground) hover:bg-(--muted) transition-colors"
               >
                 {sortBy === 'newest'
                   ? 'Newest'
@@ -146,15 +150,15 @@ export default function PostsPage() {
                     ? 'Oldest'
                     : 'Popular'}
                 <ChevronDown className="h-4 w-4" />
-              </button>
+              </Button>
               {isSortMenuOpen && (
                 <div className="absolute right-0 mt-2 w-40 bg-(--card) border border-(--border) rounded-md shadow-lg z-10">
                   {sortOptions.map((option) => (
-                    <label
+                    <Label
                       key={option.value}
                       className="flex items-center px-4 py-2 text-sm text-(--foreground) hover:bg-(--muted) cursor-pointer"
                     >
-                      <input
+                      <Input
                         type="radio"
                         name="sortBy"
                         value={option.value}
@@ -166,7 +170,7 @@ export default function PostsPage() {
                         className="mr-2 h-4 w-4 text-(--primary) focus:ring-[var(--primary)]"
                       />
                       {option.label}
-                    </label>
+                    </Label>
                   ))}
                 </div>
               )}
@@ -178,18 +182,15 @@ export default function PostsPage() {
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="rounded-xl overflow-hidden border border-(--border) bg-(--card)"
-              >
+              <Card key={i} className="overflow-hidden">
                 <Skeleton className="h-48 w-full" />
-                <div className="p-5">
+                <CardContent className="p-5">
                   <Skeleton className="h-4 w-1/3 mb-3" />
                   <Skeleton className="h-6 w-full mb-2" />
                   <Skeleton className="h-4 w-full mb-4" />
                   <Skeleton className="h-4 w-2/3" />
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         ) : error ? (

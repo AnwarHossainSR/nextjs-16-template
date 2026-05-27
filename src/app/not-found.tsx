@@ -5,6 +5,8 @@ import { AlertTriangle, ArrowLeft, Home } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { Button } from '@/components/ui/button';
+
 const NotFound = ({ error }: any) => {
   useEffect(() => {
     if (error) console.error(error);
@@ -130,20 +132,21 @@ const NotFoundContent = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          <button
+          <Button
             onClick={() => router.push('/')}
-            className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-(--primary) text-(--primary-foreground) font-semibold shadow-lg hover:bg-(--primary)/90 transition-all duration-300 hover:scale-105"
+            className="h-12 rounded-full px-6"
           >
             <Home className="h-5 w-5 mr-2" />
             Back to Home
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => router.back()}
-            className="inline-flex items-center justify-center h-12 px-6 rounded-full border border-(--border) bg-(--card) text-(--foreground) font-semibold shadow-sm hover:bg-(--accent) hover:text-(--accent-foreground) transition-all duration-300 hover:scale-105"
+            variant="outline"
+            className="h-12 rounded-full px-6"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Go Back
-          </button>
+          </Button>
         </motion.div>
 
         {/* Documentation Link */}
@@ -154,12 +157,13 @@ const NotFoundContent = () => {
           transition={{ delay: 0.9, duration: 0.5 }}
         >
           <span>Need help? Visit our </span>
-          <button
+          <Button
             onClick={() => router.push('/docs')}
-            className="text-(--primary) hover:underline font-medium"
+            variant="link"
+            className="h-auto p-0"
           >
             documentation
-          </button>
+          </Button>
           <span>.</span>
         </motion.div>
       </motion.div>

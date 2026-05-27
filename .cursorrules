@@ -1,0 +1,80 @@
+# Project Rules
+
+## Stack
+
+* Next.js App Router
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* React hooks only
+
+## UI
+
+* Industrial clean B2B design
+* White background
+* Blue accent colors
+* Minimal modern UI
+* Large spacing
+* Rounded cards
+* Responsive design mobile-first
+
+## Components
+
+* Create reusable components
+* Use composition pattern
+* Keep components small
+* Separate UI and business logic
+* Use modular scss files for example app.module.scss
+* For each .tsx file create a matching .test.tsx file and write tests for it. Always run tests before build
+* For each file .tsx you do .test.tsx and write a test for that fall there. Always run tests before build
+
+## Styling
+
+* Use Tailwind only
+* Avoid inline styles
+* Use cn() utility for class merging
+
+## Code Style
+
+* Functional components only
+* Use TypeScript strictly
+* Avoid any
+* Prefer const over function
+* Use async/await
+
+## Folder Structure
+
+* app/
+* components/
+* config/
+* context/
+* env/
+* hooks/
+* layouts/
+* lib/
+* providers/
+* services/
+* styles/
+* types/
+
+## Forms
+
+* react-hook-form
+* yup validation
+
+## API
+
+* axios
+* server actions when possible
+* @tanstack/react-query
+
+## Animations
+
+* Framer Motion minimal animations only
+
+## Important
+
+* Write production-ready code
+* Prefer clean architecture
+* Avoid overengineering
+* Components must be adaptive

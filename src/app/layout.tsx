@@ -3,8 +3,6 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { Inter, Poppins } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
-import MainFooter from '@/components/Footer';
-import MainNavbar from '@/components/Navbar';
 import { QueryProvider } from '@/providers/query';
 import { ThemeProvider } from '@/providers/theme';
 import '@/styles/globals.css';
@@ -25,67 +23,53 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Next.js Boilerplate | Professional Starter Template',
+  title: 'Фурнитура Roto | Мир Окон',
   description:
-    'A highly opinionated and production-ready Next.js 15 boilerplate with TypeScript, Tailwind CSS, ESLint, Prettier, Husky, and comprehensive SEO optimization.',
-  keywords:
-    'next.js, boilerplate, typescript, tailwind css, eslint, prettier, husky, seo, nextjs 15, react, web development',
-  authors: [{ name: 'Anwar Hossain' }],
-  creator: 'Anwar Hossain',
+    'Поставка фурнитуры Roto для алюминиевых окон, дверей и светопрозрачных конструкций.',
+  keywords: 'Roto, Мир Окон, алюминиевый профиль, фурнитура, окна, двери',
+  authors: [{ name: 'Мир Окон' }],
+  creator: 'Мир Окон',
   metadataBase: new URL('https://your-domain.com'),
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'ru_RU',
     url: 'https://your-domain.com',
-    title: 'Next.js Boilerplate | Professional Starter Template',
+    title: 'Фурнитура Roto | Мир Окон',
     description:
-      'Production-ready Next.js 15 boilerplate with all the essential tools',
-    siteName: 'Next.js Boilerplate',
+      'Фурнитура Roto для алюминиевых оконных, дверных и фасадных систем.',
+    siteName: 'Мир Окон',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Next.js Boilerplate',
+    title: 'Фурнитура Roto | Мир Окон',
     description:
-      'Production-ready Next.js 15 boilerplate with all the essential tools',
-    creator: '@anwarhossainsr',
+      'Фурнитура Roto для алюминиевых оконных, дверных и фасадных систем.',
   },
 };
 
 function RootLayoutContent({ children }: ChildrenProps) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryProvider>
-            <div className="flex min-h-screen bg-(--background) w-full overflow-x-hidden">
-              <div className="flex-1 flex flex-col w-full">
-                <MainNavbar />
-                <main className="flex-1 w-full overflow-x-hidden">
-                  {children}
-                </main>
-                <MainFooter />
-              </div>
-            </div>
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                className: 'bg-(--card) text-(--foreground) border-(--border)',
-                duration: 3000,
-              }}
-            />
-          </QueryProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <QueryProvider>
+        <main className="min-h-screen w-full overflow-x-hidden">
+          {children}
+        </main>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            className: 'bg-(--card) text-(--foreground) border-(--border)',
+            duration: 3000,
+          }}
+        />
+      </QueryProvider>
+    </ThemeProvider>
   );
 }
 
 export default function RootLayout({ children }: ChildrenProps) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <html lang="ru" suppressHydrationWarning className="overflow-x-hidden">
         <body
           className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}
         >

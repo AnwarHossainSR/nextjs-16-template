@@ -5,6 +5,7 @@ import { Github, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { Button } from '@/components/ui/button';
 import ThemeToggle from './ThemeToggle';
 
 export default function MainNavbar() {
@@ -53,24 +54,26 @@ export default function MainNavbar() {
                 {user?.firstName || user?.emailAddresses[0].emailAddress}
               </span>
               <SignOutButton>
-                <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
+                <Button variant="ghost" size="sm">
                   Sign Out
-                </button>
+                </Button>
               </SignOutButton>
             </>
           ) : (
             <SignInButton mode="modal">
-              <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
+              <Button variant="ghost" size="sm">
                 Sign In
-              </button>
+              </Button>
             </SignInButton>
           )}
           <ThemeToggle />
         </nav>
 
-        <button
+        <Button
           type="button"
-          className="md:hidden text-(--foreground) hover:text-(--primary) transition-colors duration-200"
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
           onClick={handleToggle}
         >
           {mobileMenuOpen ? (
@@ -78,7 +81,7 @@ export default function MainNavbar() {
           ) : (
             <Menu className="h-6 w-6" />
           )}
-        </button>
+        </Button>
 
         {mobileMenuOpen && (
           <div className="fixed inset-x-0 top-16 z-50 bg-(--background) border-b border-(--border) shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
@@ -115,16 +118,16 @@ export default function MainNavbar() {
                       {user?.firstName || user?.emailAddresses[0].emailAddress}
                     </span>
                     <SignOutButton>
-                      <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
+                      <Button variant="ghost" size="sm">
                         Sign Out
-                      </button>
+                      </Button>
                     </SignOutButton>
                   </>
                 ) : (
                   <SignInButton mode="modal">
-                    <button className="text-sm font-medium text-(--foreground) hover:text-(--primary) transition-colors duration-200">
+                    <Button variant="ghost" size="sm">
                       Sign In
-                    </button>
+                    </Button>
                   </SignInButton>
                 )}
                 <ThemeToggle />

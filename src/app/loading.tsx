@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion';
 
+import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+
 export default function Loading() {
   // Create a pulse animation for the skeleton elements
   const pulseVariants = {
@@ -41,8 +44,9 @@ export default function Loading() {
             initial={{ opacity: 0.6 }}
             animate={{ opacity: 1 }}
             transition={pulseTransition}
-            className="h-12 bg-(--card) rounded-lg w-3/4 mx-auto"
-          />
+          >
+            <Skeleton className="mx-auto h-12 w-3/4" />
+          </motion.div>
 
           {/* Content skeletons */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -52,15 +56,16 @@ export default function Loading() {
                 initial={{ opacity: 0.6 }}
                 animate={{ opacity: 1 }}
                 transition={{ ...pulseTransition, delay: i * 0.1 }}
-                className="rounded-xl overflow-hidden border border-(--border) bg-(--card)"
               >
-                <div className="h-48 w-full bg-(--accent)/10" />
-                <div className="p-5 space-y-3">
-                  <div className="h-4 w-1/3 bg-(--accent)/10 rounded" />
-                  <div className="h-6 w-full bg-(--accent)/10 rounded" />
-                  <div className="h-4 w-full bg-(--accent)/10 rounded" />
-                  <div className="h-4 w-2/3 bg-(--accent)/10 rounded" />
-                </div>
+                <Card className="overflow-hidden">
+                  <Skeleton className="h-48 w-full rounded-none" />
+                  <CardContent className="space-y-3 p-5">
+                    <Skeleton className="h-4 w-1/3" />
+                    <Skeleton className="h-6 w-full" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>

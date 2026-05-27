@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { LogOut, Settings, User } from 'lucide-react';
 import Link from 'next/link';
 
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 export default function DashboardPage() {
   const { user } = useUser();
 
@@ -43,10 +46,10 @@ export default function DashboardPage() {
             Settings
           </Link>
           <SignOutButton>
-            <button className="flex items-center gap-2 p-2 w-full text-sm font-medium text-(--foreground) hover:bg-(--primary) hover:text-(--primary-foreground) rounded-md transition-colors duration-200">
+            <Button variant="ghost" className="w-full justify-start">
               <LogOut className="h-5 w-5" />
               Sign Out
-            </button>
+            </Button>
           </SignOutButton>
         </nav>
       </motion.aside>
@@ -63,28 +66,30 @@ export default function DashboardPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              className="bg-(--card) p-6 rounded-lg border border-(--border) shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -5 }}
-            >
-              <h3 className="text-xl font-semibold text-(--foreground) mb-2">
-                Account Stats
-              </h3>
-              <p className="text-(--muted-foreground)">
-                View your account activity and statistics.
-              </p>
+            <motion.div whileHover={{ y: -5 }}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Account Stats</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-(--muted-foreground)">
+                    View your account activity and statistics.
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
 
-            <motion.div
-              className="bg-(--card) p-6 rounded-lg border border-(--border) shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -5 }}
-            >
-              <h3 className="text-xl font-semibold text-(--foreground) mb-2">
-                Recent Activity
-              </h3>
-              <p className="text-(--muted-foreground)">
-                Check your recent actions and updates.
-              </p>
+            <motion.div whileHover={{ y: -5 }}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Recent Activity</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-(--muted-foreground)">
+                    Check your recent actions and updates.
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </motion.div>

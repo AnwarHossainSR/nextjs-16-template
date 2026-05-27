@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import type { FC } from 'react';
 
+import { Button } from '@/components/ui/button';
 import type { CurrentUserProps } from '@/types';
 
 const Header: FC<CurrentUserProps> = () => {
@@ -11,12 +12,9 @@ const Header: FC<CurrentUserProps> = () => {
       <Link href="/">
         <span>Home</span>
       </Link>
-      <button
-        className="bg-violet-50 text-gray-900 px-4 py-2 rounded-md"
-        type="button"
-      >
+      <Button variant="secondary" type="button">
         Login
-      </button>
+      </Button>
     </header>
   );
 };
