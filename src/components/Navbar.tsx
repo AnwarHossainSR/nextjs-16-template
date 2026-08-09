@@ -1,7 +1,8 @@
 'use client';
 
 import { SignInButton, SignOutButton, useUser } from '@clerk/nextjs';
-import { Github, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import GithubIcon from './GithubIcon';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -45,7 +46,7 @@ export default function MainNavbar() {
             rel="noopener noreferrer"
             className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"
           >
-            <Github className="h-5 w-5" />
+            <GithubIcon className="h-5 w-5" />
           </Link>
           {isSignedIn ? (
             <>
@@ -107,7 +108,7 @@ export default function MainNavbar() {
                   className="text-(--foreground) hover:text-(--primary) transition-colors duration-200"
                   onClick={handleToggle}
                 >
-                  <Github className="h-5 w-5" />
+                  <GithubIcon className="h-5 w-5" />
                 </Link>
                 {isSignedIn ? (
                   <>
